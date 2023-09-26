@@ -11,8 +11,8 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary bg-primary" style="height: 70px">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <img src="public/images/logo.png"  height="30">
+            <a class="navbar-brand" href="{{route('home.login')}}">
+                <img src="{{asset('images/logo.jpg')}}"  height="30">
             </a>  
             
           <a class="navbar-brand" href="{{route('home.show')}}">The Goood Pets</a>

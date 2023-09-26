@@ -19,7 +19,8 @@ use App\Http\Controllers\CuentasController;
     return view('welcome');
 });
 */
+Route::get('/',[InicioController::class,'login'])->name('home.login');
 
-Route::get('/',[InicioController::class,'show'])->name('home.show');
+Route::get('/show',[InicioController::class,'show'])->name('home.show');
 Route::get('/index',[CuentasController::class,'index'])->name('clientes.index');
 

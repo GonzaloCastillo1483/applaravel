@@ -9,4 +9,8 @@ class InicioController extends Controller
     public function show(){
         return view('home.show');
     }
+
+    public function login(){
+        return view('home.login');
+    }
 }
