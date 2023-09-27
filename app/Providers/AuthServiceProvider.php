@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Providers;
-
-// use Illuminate\Support\Facades\Gate;
+use App\Models\Cliente;
+use Illuminate\Auth\Access\Gate;
+//use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
 class AuthServiceProvider extends ServiceProvider
@@ -19,8 +20,21 @@ class AuthServiceProvider extends ServiceProvider
     /**
      * Register any authentication / authorization services.
      */
-    public function boot(): void
+    public function boot()
     {
-        //
+        $this->registerPolicies();
+        
+        Gate::define('admin-listar',function(Cliente $cliente){
+            return $cliente->perfil_id==1;
+        });
+
+        Gate::define('artista-listar',function(Cliente $cliente){
+            return $cliente->perfil_id>1;
+        });
+
+
+        Gate::define('visitante',function(Cliente $cliente){
+            return $cliente->perfil_id == null;
+        });
     }
 }

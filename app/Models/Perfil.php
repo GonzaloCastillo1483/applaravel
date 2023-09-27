@@ -5,10 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class servicio extends Model
+class Perfil extends Model
 {
     use HasFactory;
-    protected $table = 'servicio';
-    protected $primaryKey = 'codigo_servicio';
     
+    public function clientes(){
+        return $this->hasMany('App\Models\Cliente');
+    }
 }

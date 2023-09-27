@@ -14,29 +14,34 @@
                     </div>
 
                     <div class="card-body">
-                        <form action="">
+                        <form method="POST" action="{{route('clientes.store')}}">
+                            @csrf
                             <div class="mb-3">
-                                <label for="user" class="form-label">User</label>
-                                <input type="text" id="user" name="user" class="form-control">
+                                <label for="rut_cliente" class="form-label">Rut</label>
+                                <input type="text" id="rut_cliente" name="rut_cliente" class="form-control">
                             </div>
+                           
+
+                            <div class="mb-3">
+                                <label for="nom_cliente" class="form-label">Nombre</label>
+                                <input type="text" id="nom_cliente" name="nom_cliente" class="form-control">
+                            </div>
+
                             <div class="mb-3">
                                 <label for="password" class="form-label">Contraseña</label>
                                 <input type="password" id="password" name="password" class="form-control">
                             </div>
 
                             <div class="mb-3">
-                                <label for="nombre" class="form-label">Nombre</label>
-                                <input type="text" id="nombre" name="nombre" class="form-control">
+                                <label for="fono" class="form-label">Telefono</label>
+                                <input type="text" id="fono" name="fono" class="form-control">
                             </div>
 
-                            <div class="mb-3">
-                                <label for="apellido" class="form-label">Apellido</label>
-                                <input type="text" id="apellido" name="apellido" class="form-control">
-                            </div>
+                           
 
                             <div class="mb-3 d-grid gap-2 d-lg-block">
                                 <button type ="reset" class="btn btn-danger">Cancelar</button>
-                                <button type ="" class="btn btn-success">Enviar datos</button>
+                                <button type ="submit" class="btn btn-success">Enviar datos</button>
                             </div>
                         </form>
                     </div>

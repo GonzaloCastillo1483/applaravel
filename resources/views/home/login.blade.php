@@ -30,14 +30,18 @@
                                 <form action="">
                                     @csrf
                                     <div class="mb-3">
-                                        <label for="user" class="form-label">User</label>
-                                        <input type="text" id="user" name="user" class="form-control">
+                                        <label for="rut" class="form-label">Rut</label>
+                                        <input type="text" id="rut" name="rut" class="form-control">
                                     </div>
+
+
 
                                     <div class="mb-3">
                                         <label for="password" class="form-label">Contraseña</label>
                                         <input type="password" id="password" name="password" class="form-control">
                                     </div>
+
+                                   
 
                                     <div class="mb-3 text-end">
                                 

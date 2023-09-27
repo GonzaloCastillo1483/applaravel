@@ -24,3 +24,4 @@ Route::get('/',[InicioController::class,'login'])->name('home.login');
 Route::get('/show',[InicioController::class,'show'])->name('home.show');
 Route::get('/index',[CuentasController::class,'index'])->name('clientes.index');
 
+Route::post('/clientes',[CuentasController::class,'store'])->name('clientes.store');
