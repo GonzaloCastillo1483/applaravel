@@ -65,6 +65,13 @@
                             
                         </div>
                     @endif
+                    <form method="GET" action="{{route('clientes.index')}}">
+                        <div>
+                            <button type="warning" class="btn btn-warning">
+                                ¿No estas registrado? haz click aqui para registrarte.
+                            </button>
+                        </div>
+                    </form>
                     </div>
                 </div>
 
