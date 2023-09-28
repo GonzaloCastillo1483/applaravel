@@ -9,7 +9,8 @@ class Cliente extends Model
 {
     use HasFactory;
     protected $table= 'cliente';
-    
+    protected $primaryKey='rut_cliente';
+    public $incrementing = false;
 
     public function perfil(){
         return $this->belongsTo('App\Models\perfil');
