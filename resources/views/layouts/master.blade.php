@@ -11,9 +11,17 @@
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary bg-primary" style="height: 70px">
         <div class="container-fluid">
+
             <a class="navbar-brand" href="{{route('home.login')}}">
                 <img src="{{asset('images/logo.jpg')}}"  height="30">
             </a>  
+
+            @if (Gate::allows('usuario'))
+            <a class="navbar-brand" href="#">Bienvenido/a {{Auth::user()->nom_cliente}}</a>
+
+            @else
+            <a class="navbar-brand" href="#">Bienvenido</a>
+            @endif
             
           <a class="navbar-brand" href="{{route('home.show')}}">The Goood Pets</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,7 +47,14 @@
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="{{route('clientes.index')}}">Crear perfil</a>
               </li>
+
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{{route('clientes.mascota')}}">Agregar mascotas</a>
+              </li>
             </ul>
+            <form class="d-flex">
+              <a href="{{route('clientes.logout')}}" class="btn btn-danger">Cerrar Sesión</a>
+            </form>
             
           </div>
         </div>

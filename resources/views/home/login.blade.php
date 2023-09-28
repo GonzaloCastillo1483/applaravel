@@ -27,11 +27,11 @@
                         <small>Ingresa tu cuenta o ingresa como invitado</small>
                         <div class="card">
                             <div class="card-body">
-                                <form action="">
+                                <form method="POST" action="{{route('clientes.login')}}">
                                     @csrf
                                     <div class="mb-3">
-                                        <label for="rut" class="form-label">Rut</label>
-                                        <input type="text" id="rut" name="rut" class="form-control">
+                                        <label for="rut_cliente" class="form-label">Rut</label>
+                                        <input type="text" id="rut_cliente" name="rut_cliente" class="form-control">
                                     </div>
 
 
@@ -55,6 +55,16 @@
                                 </form>
                             </div>
                         </div>
+                        @if($errors->any())
+                        <div class="alert alert-warning mt-2">
+                            <ul class="mb-0">
+                                @foreach ($errors->all() as $error)
+                                    <li>{{$error}}</li>
+                                @endforeach
+                            </ul>
+                            
+                        </div>
+                    @endif
                     </div>
                 </div>
 

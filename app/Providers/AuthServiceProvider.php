@@ -27,7 +27,7 @@ class AuthServiceProvider extends ServiceProvider
             return $cliente->perfil_id==1;
         });
 
-        Gate::define('artista-listar',function(Cliente $cliente){
+        Gate::define('cliente-listar',function(Cliente $cliente){
             return $cliente->perfil_id>1;
         });
 
@@ -35,5 +35,11 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('visitante',function(Cliente $cliente){
             return $cliente->perfil_id == null;
         });
+
+        Gate::define('usuario',function(Cliente $cliente){
+            return $cliente->perfil_id>=1;
+        });
+        
+
     }
 }

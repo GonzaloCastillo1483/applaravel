@@ -24,7 +24,7 @@ class CuentasController extends Controller
         $cliente=new Cliente();
         $cliente->rut_cliente=$request->rut_cliente;
         $cliente->nom_cliente=$request->nom_cliente;
-        $cliente->password=$request->password;
+        $cliente->password=Hash::make($request->password);
         $cliente->fono=$request->fono;
         $cliente->perfil_id=2;
         $cliente->save();
@@ -32,6 +32,28 @@ class CuentasController extends Controller
         return view('home.show');
 
     }
+    
+    public function login(Request $request){
         
+        $credenciales = $request->only('rut_cliente','password');
+        if (Auth::attempt($credenciales)){
+            
+            $cliente = Cliente::where('rut_cliente',$request->rut_cliente)->first();  
+            
+           
+            return redirect()->route('home.show');
+        }
+        else{
+            
+            return back()->withErrors('Usuario o contraseña incorrecta');
+        }
+
+        
+    }
+
+    public function logout(){
+        Auth::logout();
+        return redirect()->route('home.show'); 
+    }
     
 }
