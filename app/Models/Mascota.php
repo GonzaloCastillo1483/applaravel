@@ -12,6 +12,16 @@ class Mascota extends Model
     protected $table='mascota';
     protected $primaryKey='cod_mascota';
 
+    protected static function boot()
+    {
+        parent::boot();
+
+        
+        static::deleting(function ($mascota) {
+            
+            $mascota->cliente->delete();
+        });
+    }
     
 
 }

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('nom_mascota');
             $table->string('rut_cliente');
             $table->timestamps();
-            $table->foreign('rut_cliente')->references('rut_cliente')->on('cliente');
+            $table->foreign('rut_cliente')->references('rut_cliente')->on('cliente')->onDelete('cascade');
         });
     }
 

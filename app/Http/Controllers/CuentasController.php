@@ -56,5 +56,11 @@ class CuentasController extends Controller
         Auth::logout();
         return redirect()->route('home.login'); 
     }
+
+
+    public function destroy(Cliente $cliente){
+        $cliente->delete();
+        return redirect()->route('administrador.index');
+    }
     
 }
