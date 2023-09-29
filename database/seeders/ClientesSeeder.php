@@ -7,7 +7,7 @@ use Illuminate\Database\Seeder;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-use App\Models\Clnte;
+use App\Models\Cliente;
 use App\Models\Perfil;
 
 class ClientesSeeder extends Seeder

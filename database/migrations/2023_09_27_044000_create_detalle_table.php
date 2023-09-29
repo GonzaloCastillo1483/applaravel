@@ -15,7 +15,7 @@ return new class extends Migration
         $table->primary(['cod_serv', 'fecha', 'hora']);
         $table->integer('cod_serv');
         $table->date('fecha');
-        $table->dateTime('hora');
+        $table->string('hora');
         $table->timestamps();
         $table->integer('precio_final');
         $table->foreign('cod_serv')->references('codigo_servicio')->on('servicio');

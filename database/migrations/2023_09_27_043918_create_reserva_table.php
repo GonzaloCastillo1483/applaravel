@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('reserva', function (Blueprint $table) {
             $table->primary(['fecha','hora']);
             $table->date('fecha');
-            $table->dateTime('hora');
+            $table->string('hora');
             $table->integer('cod_masc')->unsigned();
             $table->string('estado');
             $table->timestamps();

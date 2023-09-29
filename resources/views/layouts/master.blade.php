@@ -29,29 +29,38 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              @if (Gate::allows('cliente-listar'))
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Reservar Horas</a>
+                <a class="nav-link active" aria-current="page" href="{{route('reservas.index')}}">Reservar Horas</a>
               </li>
 
+              @endif
+             
 
-              
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Gestionar horas
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Ver horas reservadas</a></li>
-                  <li><a class="dropdown-item" href="{{route('administrador.index')}}">Ver Cuentas registradas</a></li>
-                </ul>
-                
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{{route('clientes.index')}}">Crear perfil</a>
-              </li>
-
+              @if (Gate::allows('admin-listar'))
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Gestionar horas
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Ver horas reservadas</a></li>
+                    <li><a class="dropdown-item" href="{{route('administrador.index')}}">Ver Cuentas registradas</a></li>
+                  </ul>
+                  
+                </li>
+              @endif
+             @if (Gate::allows('visitante'))
+             <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{{route('clientes.index')}}">Crear perfil</a>
+            </li>
+             @endif
+             
+              @if (Gate::allows('cliente-listar'))
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="{{route('clientes.mascota')}}">Agregar mascotas</a>
               </li>
+              @endif
+             
             </ul>
             <form class="d-flex">
               <a href="{{route('clientes.logout')}}" class="btn btn-danger">Cerrar Sesión</a>

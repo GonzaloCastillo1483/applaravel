@@ -13,7 +13,18 @@
                         Crea tu perfil
                     </div>
 
+
                     <div class="card-body">
+                        @if ($errors->any())
+                        
+                                    <div class="alert alert-danger">
+                                        <p>ERROR </p>
+                                        <ul>
+                                            @foreach ($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
+                        @endif     </div>
                         <form method="POST" action="{{route('clientes.store')}}">
                             @csrf
                             <div class="mb-3">

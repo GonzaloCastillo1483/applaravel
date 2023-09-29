@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" 
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <title>Document</title>
+    <title>Inciar Sesión</title>
 </head>
 <body style="background: linear-gradient(to bottom, #660066 0%, #ff99cc 100%);">
     <div class="container-fluid min-vh-100 d-flex flex-column justify-content-lg-center">
@@ -50,7 +50,7 @@
                                     </div>
 
                                     <div>
-                                        <a href="{{route('home.show')}}">Entrar como invitado</a>
+                                        <a href="{{route('clientes.index')}}">¿No estas registrado? haz click aqui para registrarte.</a>
                                     </div>
                                 </form>
                             </div>
@@ -65,13 +65,7 @@
                             
                         </div>
                     @endif
-                    <form method="GET" action="{{route('clientes.index')}}">
-                        <div>
-                            <button type="warning" class="btn btn-warning">
-                                ¿No estas registrado? haz click aqui para registrarte.
-                            </button>
-                        </div>
-                    </form>
+                   
                     </div>
                 </div>
 

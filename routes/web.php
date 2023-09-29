@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\InicioController;
 use App\Http\Controllers\CuentasController;
 use App\Http\Controllers\MascotaController;
+use App\Http\Controllers\ReservasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,8 @@ Route::get('/',[InicioController::class,'login'])->name('home.login');
 
 Route::get('/show',[InicioController::class,'show'])->name('home.show');
 Route::get('/index',[CuentasController::class,'index'])->name('clientes.index');
+Route::get('reserva/index',[ReservasController::class,'index'])->name('reservas.index');
+//Route::get('reserva/show',[ReservasController::class,'show'])->name('reserva.show');
 
 Route::get('mascota/index',[MascotaController::class,'index'])->name('clientes.mascota');
 

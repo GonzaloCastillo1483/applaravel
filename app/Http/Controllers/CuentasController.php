@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ClienteRequest;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 
@@ -20,7 +21,7 @@ class CuentasController extends Controller
     }
 
 
-    public function store(Request $request){
+    public function store(ClienteRequest $request){
         $cliente=new Cliente();
         $cliente->rut_cliente=$request->rut_cliente;
         $cliente->nom_cliente=$request->nom_cliente;
@@ -29,7 +30,7 @@ class CuentasController extends Controller
         $cliente->perfil_id=2;
         $cliente->save();
 
-        return view('home.show');
+        return view('home.login');
 
     }
     
@@ -53,7 +54,7 @@ class CuentasController extends Controller
 
     public function logout(){
         Auth::logout();
-        return redirect()->route('home.show'); 
+        return redirect()->route('home.login'); 
     }
     
 }
