@@ -20,7 +20,7 @@
                             <th>Nombre</th>
                             <th>Telefono</th>
                             
-                            <th >Eliminar</th>
+                            <th >Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -35,6 +35,11 @@
                                             <span class="material-icons">delete</span>
                                         </button>
                                     </span>
+
+                                    <a href="{{route('clientes.edit',$cliente->rut_cliente)}}" class="btn btn-sm btn-warning pb-0 text-white" data-bs-toggle="tooltip"
+                                        data-bs-title="Editar {{$cliente->nom_cliente}}">
+                                        <span class="material-icons">edit</span>
+                                    </a>
                                 </td>
                             </tr>
                             <div class="modal fade" id="cuentaBorrarModel{{$cliente->rut_cliente}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

@@ -12,15 +12,17 @@ return new class extends Migration
     public function up(): void
 {
     Schema::create('detalle', function (Blueprint $table) {
-        $table->primary(['cod_serv', 'fecha', 'hora']);
+        $table->primary(['cod_serv','id_detalle']);
         $table->integer('cod_serv');
+        $table->integer('id_detalle')->unsigned();
+
         $table->date('fecha');
         $table->string('hora');
         $table->timestamps();
         $table->integer('precio_final');
         $table->foreign('cod_serv')->references('codigo_servicio')->on('servicio');
-        $table->foreign('fecha')->references('fecha')->on('reserva');
-        $table->foreign('hora')->references('hora')->on('reserva');
+        $table->foreign('id_detalle')->references('id')->on('reserva');
+        
     });
 }
 

@@ -30,7 +30,8 @@ Route::get('reserva/index',[ReservasController::class,'index'])->name('reservas.
 Route::delete('/clientes/{cliente}',[CuentasController::class,'destroy'])->name('clientes.destroy');
 
 Route::get('mascota/index',[MascotaController::class,'index'])->name('clientes.mascota');
-
+Route::get('/clientes/{cliente}/edit',[CuentasController::class,'edit'])->name('clientes.edit');
+Route::put('/clientes/{cliente}',[CuentasController::class,'update'])->name('clientes.update');
 Route::post('/clientes',[CuentasController::class,'store'])->name('clientes.store');
 
 Route::post('clientes/login',[CuentasController::class,'login'])->name('clientes.login');
