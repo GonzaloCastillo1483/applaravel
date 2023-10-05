@@ -16,7 +16,7 @@ class PerfilSeeder extends Seeder
     {
         DB::table('perfiles')->insert([
             ['nombre'=>'Administrador','created_at'=>Carbon::now()],
-            ['nombre'=>'Artista','created_at'=>Carbon::now()],
+            ['nombre'=>'Cliente','created_at'=>Carbon::now()],
         ]);
     }
 }

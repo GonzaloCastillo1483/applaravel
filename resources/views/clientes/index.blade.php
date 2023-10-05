@@ -25,14 +25,17 @@
                                             @endforeach
                                         </ul>
                         @endif     </div>
+
+                       
                         <form method="POST" action="{{route('clientes.store')}}">
                             @csrf
                             <div class="mb-3">
-                                <label for="rut_cliente" class="form-label">Rut</label>
+                                <label for="rut_cliente" class="form-label" size="8" maxlength="8">Rut</label>
                                 <input type="text" id="rut_cliente" name="rut_cliente" class="form-control">
-                            </div>
+                                
+        
                            
-
+                            </div>
                             <div class="mb-3">
                                 <label for="nom_cliente" class="form-label">Nombre</label>
                                 <input type="text" id="nom_cliente" name="nom_cliente" class="form-control">
@@ -48,7 +51,20 @@
                                 <input type="text" id="fono" name="fono" class="form-control">
                             </div>
 
-                           
+                           <div class="form-group">
+                                <label for="perfil_id">Perfil</label>
+                                <div>
+                                    <div class="form-ckeck form-check-inline">
+                                        <input type="radio" class="form-check-input" id="per-cliente" name="perfil_id" value="2" @if($cliente->perfil_id==2) checked @endif>
+                                            
+                                        
+                                        <label class="form-check-label" for="per-administrador">Cliente</label>
+            
+                                    
+                                    </div>
+                                </div>
+                                
+                           </div>
 
                             <div class="mb-3 d-grid gap-2 d-lg-block">
                                 <button type ="reset" class="btn btn-danger">Cancelar</button>

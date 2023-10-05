@@ -58,6 +58,29 @@
                     <input type="text" id="fono" name="fono" class="form-control" value="{{$cliente->fono}}">
                 </div>
 
+                <div class="form-group">
+                    <label for="perfil_id">Perfil</label>
+                    <div>
+                        <div class="form-ckeck form-check-inline">
+                            <input type="radio" class="form-check-input" id="per-administrador" name="perfil_id" value="1" @if($cliente->perfil_id==1) checked @endif>
+                                
+                            
+                            <label class="form-check-label" for="per-administrador">Administrador</label>
+
+                        
+                        </div>
+
+                        <div class="form-ckeck form-check-inline">
+                            <input type="radio" class="form-check-input" id="per-cliente" name="perfil_id" value="2" @if($cliente->perfil_id==2) checked @endif>
+                                
+                            
+                            <label class="form-check-label" for="per-administrador">Cliente</label>
+
+                        
+                        </div>
+                    </div>
+                </div>
+
                 <div class="mt-2">
                     <div class="mb-3 d-grid gap-2 d-lg-block">
                         <button type ="reset" class="btn btn-warning">Cancelar</button>
