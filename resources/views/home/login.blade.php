@@ -24,7 +24,7 @@
 
                     <div class="col-lg-8 bg-white">
                         <h4>Inicio de Sesion</h4>
-                        <small>Ingresa tu cuenta o ingresa como invitado</small>
+                        <small>Ingresa tu cuenta o Crea una</small>
                         <div class="card">
                             <div class="card-body">
                                 <form method="POST" action="{{route('clientes.login')}}">
