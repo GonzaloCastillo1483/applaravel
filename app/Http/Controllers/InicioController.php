@@ -14,3 +14,5 @@ class InicioController extends Controller
         return view('home.login');
     }
 }
+
+

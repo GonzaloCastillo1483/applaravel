@@ -5,6 +5,12 @@
 <body>
     <div class="container-fluid">
         <div class="row">
+            <form class="d-flex" role="search" action="{{route('administrador.index')}}">
+                <input class="form-control me-2" type="search" placeholder="Buscar usuario" aria-label="Search" name="usuario">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>
+        <div class="row">
             <div class="col">
                 <h3>Cuentas Registradas</h3>
             </div>

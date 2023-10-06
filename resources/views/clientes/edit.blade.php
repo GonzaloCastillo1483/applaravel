@@ -27,14 +27,22 @@
             @if ($errors->any())
                         
                 <div class="alert alert-danger">
-                    <p>ERROR </p>
+                    
                     <ul>
                         @foreach ($errors->all() as $error)
                             <li>{{ $error }}</li>
                         @endforeach
                     </ul>
                 </div>
-            @endif    
+            @endif
+            
+            
+            @if(session('error'))
+                <p>ERROR</p>    
+                <div class="alert alert-danger">
+                    {{ session('error') }}
+                </div>
+            @endif
             <form method="POST" action="{{route('clientes.update',$cliente->rut_cliente)}}" enctype="multipart/form-data">
                 @csrf
                 @method('put')
@@ -49,7 +57,12 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="password" class="form-label">Nueva Contraseña:</label>
+                    <label for="contrasena" class="form-label">Nueva Contraseña:</label>
+                    <input type="password" id="contrasena" name="contrasena" class="form-control">
+                </div>
+
+                <div class="mb-3">
+                    <label for="password" class="form-label">Confirma Contraseña:</label>
                     <input type="password" id="password" name="password" class="form-control">
                 </div>
 

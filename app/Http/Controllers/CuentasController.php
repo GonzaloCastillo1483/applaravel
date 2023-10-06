@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Cliente;
 use App\Models\Perfil;
 use PhpParser\Node\Stmt\Return_;
-
+use App\Helpers\RutHelper;
 
 class CuentasController extends Controller
 {
@@ -28,18 +28,41 @@ class CuentasController extends Controller
 
     public function store(ClienteRequest $request){
         $cliente=new Cliente();
+        $rutSinDV = $request->rut_cliente;
+        $dvProvided = substr($rutSinDV, -1); 
+        $rutBase = substr($rutSinDV, 0, -1);
+    
+        $dvCalculated = RutHelper::calcularDigitoVerificador($rutBase);
+    
+        if ($dvProvided !== $dvCalculated) {
+            
+            return redirect()->back()->with('error', 'El dígito verificador es incorrecto');
+        }
         $cliente->rut_cliente=$request->rut_cliente;
         $cliente->nom_cliente=$request->nom_cliente;
-        $cliente->password=Hash::make($request->password);
+
+        $contra=$request->contrasena;
+        $finalPass=$request->password;
+
+        if($contra!==$finalPass){
+            return redirect()->back()->with('error', 'Las contraseñas nos coinciden');
+        }
+
+
+        $cliente->password=Hash::make($finalPass);
         $cliente->fono=$request->fono;
         $cliente->perfil_id=$request->perfil_id;
         $cliente->save();
 
         
 
-        return view('home.login');
+        return view('home.show');
 
     }
+
+    
+    
+
 
     
    
@@ -85,7 +108,14 @@ class CuentasController extends Controller
         $cliente = new Cliente();
         $cliente = Cliente::where('rut_cliente',$request->input('rut_cliente'))->first();
         $cliente->nom_cliente=$request->nom_cliente;
-        $cliente->password=Hash::make($request->password);
+        $contra=$request->contrasena;
+        $finalPass=$request->password;
+
+        if($contra!==$finalPass){
+            return redirect()->back()->with('error', 'Las contraseñas nos coinciden');
+        }
+
+        $cliente->password=Hash::make($finalPass);
         $cliente->fono=$request->fono;
         $cliente->perfil_id=$request->perfil_id;
         $cliente->save();

@@ -12,7 +12,7 @@
     <nav class="navbar navbar-expand-lg bg-body-tertiary bg-primary" style="height: 70px">
         <div class="container-fluid">
 
-            <a class="navbar-brand" href="{{route('home.login')}}">
+            <a class="navbar-brand" href="{{route('home.show')}}">
                 <img src="{{asset('images/logo.jpg')}}"  height="30">
             </a>  
 
@@ -40,28 +40,39 @@
               @if (Gate::allows('admin-listar'))
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Gestionar horas
+                    Acciones
                   </a>
                   <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="#">Ver horas reservadas</a></li>
                     <li><a class="dropdown-item" href="{{route('administrador.index')}}">Ver Cuentas registradas</a></li>
                   </ul>
+
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{{route('clientes.index')}}">Crear cuenta</a>
+                  </li>
                   
                 </li>
+
+
               @endif
-             @if (Gate::allows('visitante'))
-             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="{{route('clientes.index')}}">Crear perfil</a>
-            </li>
-             @endif
+              @if(Gate::allows('visitante'))
+                <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{{route('home.login')}}">Inicia sesion</a>
+                </li>
+              @endif  
              
               @if (Gate::allows('cliente-listar'))
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="{{route('clientes.mascota')}}">Agregar mascotas</a>
               </li>
               @endif
+
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{{route('home.login')}}">Inicia sesion</a>
+                </li>
              
             </ul>
+
             <form class="d-flex">
               <a href="{{route('clientes.logout')}}" class="btn btn-danger">Cerrar Sesión</a>
             </form>
