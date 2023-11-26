@@ -18,6 +18,7 @@ class MascotaController extends Controller
         $mascota=new Mascota();
         $mascota->nom_mascota=$request->nom_mascota;
         $mascota->rut_cliente=Auth::user()->rut_cliente;
+        
         $mascota->save();
         return view('home.show');
     }

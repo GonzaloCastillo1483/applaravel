@@ -40,6 +40,7 @@ Route::get('clientes/logout',[CuentasController::class,'logout'])->name('cliente
 Route::get('admin/index',[AdminController::class,'index'])->name('administrador.index');
 Route::post('mascota/store',[MascotaController::class,'store'])->name('mascota.store');
 
+Route::get('reservas/show',[ReservasController::class,'show'])->name('reservas.show');
 
 
 

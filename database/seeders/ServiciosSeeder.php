@@ -16,7 +16,7 @@ class ServiciosSeeder extends Seeder
     public function run(): void
     {
         DB::table('servicio')->insert([
-            ['codigo_servicio' => 1, 'precio' => 20000, 'desc_servicio'=>'Corte de pelo, baño incluido, corte de uñas']
+            ['codigo_servicio' => 1, 'precio' => 20000, 'desc_servicio'=>'Corte de pelo, baño incluido, corte de uñas', 'activo'=>'si']
         ]);
 
         

@@ -24,15 +24,17 @@
                                 </div>
                             </div>
 
-
-                            <div class="mb-3">
-                                <select name="cod_mascota" id="cod_mascota">
-                                    <option value="">Selecciona tu mascota</option>
-                                    @foreach ($mascotas as $mascota )
-                                        <option value="{{$mascota->cod_mascota}}">{{$mascota->nom_mascota}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
+                            <form action="">
+                                <div class="mb-3">
+                                    <select name="cod_mascota" id="cod_mascota">
+                                        <option value="">Selecciona tu mascota</option>
+                                        @foreach ($mascotas as $mascota )
+                                            <option value="{{$mascota->cod_mascota}}">{{$mascota->nom_mascota}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </form>
+                            
 
                             <div class="mb-3">
                                 <select name="codigo_servicio" id="cod_mascota">

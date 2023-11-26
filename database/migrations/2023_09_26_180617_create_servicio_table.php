@@ -16,6 +16,8 @@ return new class extends Migration
             $table->integer('codigo_servicio')->autoincrement()->from(1);
             $table->integer('precio');
             $table->string('desc_servicio');
+            $table->string('activo');
+
             $table->timestamps();
         });
     }
