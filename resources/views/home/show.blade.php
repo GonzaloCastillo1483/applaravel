@@ -4,7 +4,7 @@
 
 <body style="background-color: lightblue">
     <div class="container-fluid d-flex flex-column justify-content-lg-center">
-        <div class="row ">
+        <div class="row">
             <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 mt-5 justify-content-lg-center">
                 <div id="carrusel1" class="carousel slide"  style="width: 650px">
                     

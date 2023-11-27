@@ -19,6 +19,21 @@
                                 <input type="text" id="nom_mascota" name="nom_mascota" class="form-control">
                             </div>
 
+                            <div class="mb-3">
+                                <label for="raza" class="form-label">Raza de la mascota</label>
+                                <input type="text" id="raza" name="raza" class="form-control">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="edad" class="form-label">edad de la mascota</label>
+                                <input type="text" id="edad" name="edad" class="form-control">
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="tamaño" class="form-label">tamaño de la mascota</label>
+                                <input type="text" id="tamaño" name="tamaño" class="form-control">
+                            </div>
+
                             <div class="mb-3 d-grid gap-2 d-lg-block">
                                 <button type ="reset" class="btn btn-danger">Cancelar</button>
                                 <button type ="submit" class="btn btn-success">Enviar datos</button>
