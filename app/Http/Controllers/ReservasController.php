@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\Mascota;
 use App\Models\servicio;
 use App\Models\Cliente;
+use App\Models\reserva;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class ReservasController extends Controller
 {
@@ -41,4 +43,16 @@ class ReservasController extends Controller
 
 
 //    }
+    public function store(Request $request){
+        $reservas=new Reserva();
+        $reservas->cod_mascota=$request->cod_mascota;
+        $reservas->fecha=$request->fecha;
+        $reservas->hora=$request->hora;
+        $reservas->cod_servicio=$request->id;
+        $reservas->estado=$request->null;
+
+
+        $reservas->save();
+        return view('home.show');
+    }
 }

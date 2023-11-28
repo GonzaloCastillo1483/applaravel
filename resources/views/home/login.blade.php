@@ -19,13 +19,10 @@
                         <h4 class="text-light">The Good Pets</h4>
                         <h4 class="text-light">Peluqueria Canina</h4>
                     </div>
-
-
-
                     <div class="col-lg-8 bg-white">
                         <h4>Inicio de Sesion</h4>
                         <small>Ingresa tu cuenta o Crea una</small>
-                        <div class="card">
+                        <div class="card mb-4">
                             <div class="card-body">
                                 <form method="POST" action="{{route('clientes.login')}}">
                                     @csrf
@@ -33,22 +30,13 @@
                                         <label for="rut_cliente" class="form-label">Rut</label>
                                         <input type="text" id="rut_cliente" name="rut_cliente" class="form-control">
                                     </div>
-
-
-
                                     <div class="mb-3">
                                         <label for="password" class="form-label">Contraseña</label>
                                         <input type="password" id="password" name="password" class="form-control">
                                     </div>
-
-                                   
-
                                     <div class="mb-3 text-end">
-                                
                                         <button type="submit" class="btn btn-success" hr>Iniciar Sesión</button>
-                                        
                                     </div>
-
                                     <div>
                                         <a href="{{route('clientes.index')}}">¿No estas registrado? haz click aqui para registrarte.</a>
                                     </div>
@@ -62,29 +50,13 @@
                                     <li>{{$error}}</li>
                                 @endforeach
                             </ul>
-                            
                         </div>
                     @endif
-                   
                     </div>
                 </div>
-
             </div>
         </div>
-
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
