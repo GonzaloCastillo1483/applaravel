@@ -43,7 +43,7 @@
                     Acciones
                   </a>
                   <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Ver horas reservadas</a></li>
+                    <li><a class="dropdown-item" href="{{route('administrador.horas')}}">Ver horas reservadas</a></li>
                     <li><a class="dropdown-item" href="{{route('administrador.index')}}">Ver Cuentas registradas</a></li>
                   </ul>
 

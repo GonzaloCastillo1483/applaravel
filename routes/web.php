@@ -38,6 +38,7 @@ Route::post('clientes/login',[CuentasController::class,'login'])->name('clientes
 
 Route::get('clientes/logout',[CuentasController::class,'logout'])->name('clientes.logout');
 Route::get('admin/index',[AdminController::class,'index'])->name('administrador.index');
+Route::get('admin/horas',[AdminController::class,'horas'])->name('administrador.horas');
 Route::post('mascota/store',[MascotaController::class,'store'])->name('mascota.store');
 
 Route::get('reservas/show',[ReservasController::class,'show'])->name('reservas.show');

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Cliente;
 use App\Models\Mascota;
 use App\Models\Perfil;
+use App\Models\reserva;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 class AdminController extends Controller
@@ -22,7 +23,13 @@ class AdminController extends Controller
             $clientes = Cliente::all();
         }
 
-        
         return view('administrador.index',compact(['clientes','mascotas']));
+    }
+
+    public function horas(Request $request){
+        $reservas = reserva::all();
+
+        
+        return view('administrador.horas',compact(['reservas']));
     }
 }
