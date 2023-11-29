@@ -11,8 +11,7 @@
                         Toma de Horas
                     </div>
                     <div class="card-boy">
-                        <form method="" action="">
-                            @csrf
+                        
                             <div class="mb-3">
                                 <div class="mb-3 p-3">
                                     @if (Gate::allows('usuario'))
@@ -24,40 +23,46 @@
                                 </div>
                             </div>
 
-                            <form action="POST" action="{{route('reservas.store')}}">
-                                <form action="">
-                                    <div class="mb-3">
-                                        <select name="cod_mascota" id="cod_mascota">
-                                            <option value="">Selecciona tu mascota</option>
+                            <form method="POST" action="{{route('reservas.store')}}">
+                                @csrf
+                                
+                                <div class="mb-3">
+                                        <select name="cod" id="cod">
+                                            <option>Selecciona tu mascota</option>
                                             @foreach ($mascotas as $mascota )
                                                 <option value="{{$mascota->cod_mascota}}">{{$mascota->nom_mascota}}</option>
                                             @endforeach
                                         </select>
-                                    </div>
-                                </form>
+                                </div>
+                               
+
+                                <div class="mb-3">
+                                    <label for="tamaño" class="form-label">Estado de la mascota</label>
+                                    <input type="text" id="estado" name="estado" class="form-control">
+                                </div>
                                 
                                 <div class = "mb-3">  
                                     <div>  
                                         <div>   
                                             <input type = "date" name = "fecha" id="fecha">  
                                             <select name="hora" id="hora">
-                                                <option value="">8AM</option>
-                                                <option value="">9AM</option>
-                                                <option value="">10AM</option>
-                                                <option value="">11AM</option>
-                                                <option value="">12AM</option>
-                                                <option value="">1PM</option>
-                                                <option value="">2PM</option>
-                                                <option value="">3PM</option>
-                                                <option value="">4PM</option>
-                                                <option value="">5PM</option>
-                                                <option value="">6PM</option>
-                                                <option value="">7PM</option>
+                                                <option value="8AM">8AM</option>
+                                                <option value="9AM">9AM</option>
+                                                <option value="10AM">10AM</option>
+                                                <option value="11AM">11AM</option>
+                                                <option value="12PM">12PM</option>
+                                                <option value="1PM">1PM</option>
+                                                <option value="2PM">2PM</option>
+                                                <option value="3PM">3PM</option>
+                                                <option value="4PM">4PM</option>
+                                                <option value="5PM">5PM</option>
+                                                <option value="5PM">6PM</option>
+                                                <option value="7PM">7PM</option>
                                             </select>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="mb-3">
+                                {{-- <div class="mb-3">
                                     <select name="cod_servicio" id="cod_servicio">
                                         <option value="">Selecciona el servicio que deseas</option>
                                         @foreach ($servicios as $servicio )
@@ -65,12 +70,12 @@
                                         @endforeach
                                     </select>
                                 </div>
-    
+     --}}
                                 <div class="mb-3 d-grid gap-2 d-lg-block">
                                     <button type ="submit" class="btn btn-success">Enviar datos</button>
                                 </div>
                             </form>
-                        </form>
+                        
                     </div>
                 </div>
             </div>

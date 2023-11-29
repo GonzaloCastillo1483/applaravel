@@ -9,6 +9,6 @@ class reserva extends Model
 {
     use HasFactory;
     
-    protected $table='mascota';
-    protected $primaryKey='cod_mascota';
+    protected $table='reserva';
+    
 }

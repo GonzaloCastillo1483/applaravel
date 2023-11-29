@@ -45,14 +45,16 @@ class ReservasController extends Controller
 //    }
     public function store(Request $request){
         $reservas=new Reserva();
-        $reservas->cod_mascota=$request->cod_mascota;
+        $rut=Auth::user()->rut_cliente;
+        $mascotas=DB::table('mascota')->where('rut_cliente',$rut)->get();
         $reservas->fecha=$request->fecha;
         $reservas->hora=$request->hora;
-        $reservas->cod_servicio=$request->id;
-        $reservas->estado=$request->null;
+        $reservas->cod_masc=$request->cod;
+        
+        $reservas->estado=$request->estado;
 
 
         $reservas->save();
-        return view('home.show');
+        return view('reservas.index', compact('mascotas'));
     }
 }
