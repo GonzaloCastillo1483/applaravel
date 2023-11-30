@@ -9,8 +9,13 @@
                 <div class="card">
                     <div class="card-header">
                         Toma de Horas
+
                     </div>
                     <div class="card-boy">
+
+
+                        
+                         
                         
                             <div class="mb-3">
                                 <div class="mb-3 p-3">
@@ -22,6 +27,17 @@
                                     @endif
                                 </div>
                             </div>
+
+                               
+                            @if(session('error'))
+                                <div class="alert alert-danger">
+                                    {{ session('error') }}
+                                </div>
+                            @endif
+
+
+
+                          
 
                             <form method="POST" action="{{route('reservas.store')}}">
                                 @csrf
@@ -44,32 +60,16 @@
                                 <div class = "mb-3">  
                                     <div>  
                                         <div>   
-                                            <input type = "date" name = "fecha" id="fecha">  
+                                            <input type = "date" name = "fecha" id="fecha" min="{{ date('Y-m-d') }}" required>  
                                             <select name="hora" id="hora">
-                                                <option value="8AM">8AM</option>
-                                                <option value="9AM">9AM</option>
-                                                <option value="10AM">10AM</option>
-                                                <option value="11AM">11AM</option>
-                                                <option value="12PM">12PM</option>
-                                                <option value="1PM">1PM</option>
-                                                <option value="2PM">2PM</option>
-                                                <option value="3PM">3PM</option>
-                                                <option value="4PM">4PM</option>
-                                                <option value="5PM">5PM</option>
-                                                <option value="5PM">6PM</option>
-                                                <option value="7PM">7PM</option>
+                                                @foreach ($horas as $hour )
+                                                    <option value="{{$hour}}">{{$hour}}</option>
+                                                @endforeach
                                             </select>
                                         </div>
                                     </div>
                                 </div>
-                                {{-- <div class="mb-3">
-                                    <select name="cod_servicio" id="cod_servicio">
-                                        <option value="">Selecciona el servicio que deseas</option>
-                                        @foreach ($servicios as $servicio )
-                                            <option value="{{$servicio->codigo_servicio}}">{{$servicio->desc_servicio}}  ${{$servicio->precio}}  </option>
-                                        @endforeach
-                                    </select>
-                                </div>
+                                {{-- 
      --}}
                                 <div class="mb-3 d-grid gap-2 d-lg-block">
                                     <button type ="submit" class="btn btn-success">Enviar datos</button>

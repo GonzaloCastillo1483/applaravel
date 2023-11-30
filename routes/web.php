@@ -42,7 +42,7 @@ Route::get('admin/horas',[AdminController::class,'horas'])->name('administrador.
 Route::post('mascota/store',[MascotaController::class,'store'])->name('mascota.store');
 
 Route::get('reservas/show',[ReservasController::class,'show'])->name('reservas.show');
-Route::post('reservas/store',[ReservasController::class,'store'])->name('reservas.store');
+Route::post('reserva/store',[ReservasController::class,'store'])->name('reservas.store');
 
 
 
