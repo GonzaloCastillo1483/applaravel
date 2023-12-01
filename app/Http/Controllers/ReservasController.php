@@ -7,7 +7,7 @@ use App\Models\Mascota;
 use App\Models\servicio;
 use App\Models\Cliente;
 use App\Models\Detalle;
-use App\Models\Reserva;
+use App\Models\reserva;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -88,13 +88,15 @@ class ReservasController extends Controller
         //     unset($horasDisponiblesPorDia[$key]);
         // }
         $tamano=$request->tamaño;
-        $esta=$request->estado;    
+        $esta=$request->estado;
+        $servicios = servicio::all();
         $detalle = new Detalle();
         $detalle->cod_serv= $request->cod_servicio;
         $detalle->id_detalle=$idReserva;
         $detalle->precio_final=PrecioHelper::calcularPrecioFinal($precioSeleccionado,$tamano,$esta);
+        $detalle->fecha =$request->fecha;
+        $detalle->hora =$request->hora;
         $detalle->save();
-
         
 
     
