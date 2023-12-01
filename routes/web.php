@@ -43,6 +43,6 @@ Route::post('mascota/store',[MascotaController::class,'store'])->name('mascota.s
 
 Route::get('reservas/show',[ReservasController::class,'show'])->name('reservas.show');
 Route::post('reserva/store',[ReservasController::class,'store'])->name('reservas.store');
-
+Route::delete('/reserva/{reservas}',[ReservasController::class,'destroy'])->name('reservas.destroy');
 
 

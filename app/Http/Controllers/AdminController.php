@@ -34,4 +34,6 @@ class AdminController extends Controller
         
         return view('administrador.horas',compact(['reservas','mascotas']));
     }
+
+    
 }

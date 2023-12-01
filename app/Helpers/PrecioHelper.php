@@ -40,7 +40,7 @@ class PrecioHelper{
         if ($est=='sucio') {
             $precio2=5000;
         }
-        if ($est=='nada') {
+        if ($est=='buen estado') {
             $precio2=0;
         }
         $final=$precio+$precio1+$precio2;

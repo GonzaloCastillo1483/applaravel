@@ -58,7 +58,7 @@
                                 <div class="mb-3">
                                     <label for="tamaño" class="form-label">Estado de la mascota</label>
                                     <select name="estado" id="estado">
-                                        <option value="nada">En buen estado</option>
+                                        <option value="buen estado">En buen estado</option>
                                         <option value="amotado">Amotado</option>
                                         <option value="nudoso">Con nudos</option></option>
                                         <option value="pulgoso">Pulgoso</option>

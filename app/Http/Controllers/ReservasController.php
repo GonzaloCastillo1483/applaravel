@@ -65,18 +65,12 @@ class ReservasController extends Controller
         $reservas->cod_masc=$request->cod;
         $reservas->estado=$request->estado;
         
-
-        
-        
-
-
         $reservas->save();
         $precioSeleccionado = 0; 
         $codigoServicio= $request->cod_servicio;
         $servicios = DB::table('servicio')->where('codigo_servicio', $codigoServicio)->first();
 
         if ($servicios) {
-            
             $precioSeleccionado = $servicios->precio;
         }    
         $idReserva = $reservas->id;
@@ -108,5 +102,12 @@ class ReservasController extends Controller
     {
         
         return ["8AM", "9AM", "10AM", "11AM", "12PM", "1PM", "2PM", "3PM", "4PM", "5PM", "6PM", "7PM"];
+    }
+
+    public function destroy(reserva $reservas){
+        $id_key = $reservas->id;
+        $detalle_borrar = DB::table('Detalle')->where('id_detalle', $id_key)->delete();
+        $reservas->delete();
+        return redirect()->route('administrador.index');
     }
 }
