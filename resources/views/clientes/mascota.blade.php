@@ -31,7 +31,14 @@
 
                             <div class="mb-3">
                                 <label for="tamaño" class="form-label">tamaño de la mascota</label>
-                                <input type="text" id="tamaño" name="tamaño" class="form-control">
+                                <select name="tamaño" id="tamaño">
+                                    <option value="chico">Pequeño</option>
+                                    <option value="mediano">Mediano</option></option>
+                                    <option value="grande">Grande</option>
+                                    
+
+
+                                </select>
                             </div>
 
                             <div class="mb-3 d-grid gap-2 d-lg-block">

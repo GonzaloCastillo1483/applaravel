@@ -36,6 +36,8 @@
                             @endif
 
 
+                           
+
 
                           
 
@@ -43,8 +45,9 @@
                                 @csrf
                                 
                                 <div class="mb-3">
+                                    <label for="mascota" class="form-label">Selecciona tu mascota</label>
                                         <select name="cod" id="cod">
-                                            <option>Selecciona tu mascota</option>
+                                            
                                             @foreach ($mascotas as $mascota )
                                                 <option value="{{$mascota->cod_mascota}}">{{$mascota->nom_mascota}}</option>
                                             @endforeach
@@ -54,7 +57,15 @@
 
                                 <div class="mb-3">
                                     <label for="tamaño" class="form-label">Estado de la mascota</label>
-                                    <input type="text" id="estado" name="estado" class="form-control">
+                                    <select name="estado" id="estado">
+                                        <option value="nada">En buen estado</option>
+                                        <option value="amotado">Amotado</option>
+                                        <option value="nudoso">Con nudos</option></option>
+                                        <option value="pulgoso">Pulgoso</option>
+                                        <option value="sucio">Muy sucio</option>
+
+
+                                    </select>
                                 </div>
                                 
                                 <div class = "mb-3">  
@@ -62,15 +73,25 @@
                                         <div>   
                                             <input type = "date" name = "fecha" id="fecha" min="{{ date('Y-m-d') }}" required>  
                                             <select name="hora" id="hora">
-                                                @foreach ($horas as $hour )
-                                                    <option value="{{$hour}}">{{$hour}}</option>
+                                                @foreach ($horasDisponiblesPorDia as $hora )
+                                                    <option value="{{$hora}}">{{$hora}}</option>
                                                 @endforeach
                                             </select>
                                         </div>
                                     </div>
                                 </div>
-                                {{-- 
-     --}}
+                                <div class="mb-3">
+                                    <label for="" class="form-label">Selecciona el servicio que deseas</label>
+                                    <select name="cod_servicio" id="cod_servicio">
+                                        
+                                        @foreach ($servicios as $servicio )
+                                            <option value="{{$servicio->codigo_servicio}}">{{$servicio->desc_servicio}}  ${{$servicio->precio}}  </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                
+                                
+     
                                 <div class="mb-3 d-grid gap-2 d-lg-block">
                                     <button type ="submit" class="btn btn-success">Enviar datos</button>
                                 </div>

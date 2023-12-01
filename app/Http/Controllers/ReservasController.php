@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\PrecioHelper;
 use App\Models\Mascota;
 use App\Models\servicio;
 use App\Models\Cliente;
+use App\Models\Detalle;
 use App\Models\Reserva;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -19,10 +21,10 @@ class ReservasController extends Controller
         $rut=Auth::user()->rut_cliente;
         $mascotas=DB::table('mascota')->where('rut_cliente',$rut)->get();
         $servicios = servicio::all();
-        $horas = [
+        $horasDisponiblesPorDia = [
             "8AM", "9AM", "10AM", "11AM", "12PM", "1PM", "2PM", "3PM", "4PM", "5PM", "6PM", "7PM"
         ];
-        return view('reservas.index',compact('mascotas','servicios','horas'));
+        return view('reservas.index',compact('mascotas','servicios','horasDisponiblesPorDia'));
 
         $rut_cliente=Auth::user()->rut_cliente;
         // $clientes=DB::table('cliente')->where('perfil_id',2)->get();
@@ -69,21 +71,41 @@ class ReservasController extends Controller
 
 
         $reservas->save();
+        $precioSeleccionado = 0; 
+        $codigoServicio= $request->cod_servicio;
+        $servicios = DB::table('servicio')->where('codigo_servicio', $codigoServicio)->first();
+
+        if ($servicios) {
+            
+            $precioSeleccionado = $servicios->precio;
+        }    
+        $idReserva = $reservas->id;
         $fechaReserva = $request->fecha;
         $horaReserva = $request->hora;
-
-        $horas = [
-            "8AM", "9AM", "10AM", "11AM", "12PM", "1PM", "2PM", "3PM", "4PM", "5PM", "6PM", "7PM"
-        ];
+        $horasDisponiblesPorDia = $this->getHorasDisponiblesPorDia($fechaReserva);
+        // if (($key = array_search($horaReserva, $horasDisponiblesPorDia)) !== false) {
+        //     // Eliminar la hora reservada del array
+        //     unset($horasDisponiblesPorDia[$key]);
+        // }
+        $tamano=$request->tamaño;
+        $esta=$request->estado;    
+        $detalle = new Detalle();
+        $detalle->cod_serv= $request->cod_servicio;
+        $detalle->id_detalle=$idReserva;
+        $detalle->precio_final=PrecioHelper::calcularPrecioFinal($precioSeleccionado,$tamano,$esta);
+        $detalle->save();
 
         
 
+    
+
+        return view('reservas.index', compact('mascotas','horasDisponiblesPorDia','servicios'))->with('success','Reserva hecha correctamente');
+    }
+
+
+    private function getHorasDisponiblesPorDia($fecha)
+    {
         
-
-        if ($key=array_search($horaReserva, $horas)!==false) {
-            unset($horas[$key]);
-        }
-
-        return view('reservas.index', compact('mascotas','horas'))->with('success','Reserva hecha correctamente');
+        return ["8AM", "9AM", "10AM", "11AM", "12PM", "1PM", "2PM", "3PM", "4PM", "5PM", "6PM", "7PM"];
     }
 }

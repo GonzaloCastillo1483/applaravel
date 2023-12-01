@@ -15,11 +15,8 @@ return new class extends Migration
         $table->primary(['cod_serv','id_detalle']);
         $table->integer('cod_serv');
         $table->integer('id_detalle')->unsigned();
-
-        $table->date('fecha');
-        $table->string('hora');
-        $table->timestamps();
         $table->integer('precio_final');
+        $table->timestamps();
         $table->foreign('cod_serv')->references('codigo_servicio')->on('servicio');
         $table->foreign('id_detalle')->references('id')->on('reserva');
         
