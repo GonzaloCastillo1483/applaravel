@@ -11,4 +11,6 @@ class Detalle extends Model
     protected $primaryKey = ['cod_serv', 'id_detalle'];
     public $incrementing = false;
     use HasFactory;
+
+   
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cliente;
+use App\Models\Detalle;
 use App\Models\Mascota;
 use App\Models\Perfil;
 use App\Models\reserva;
@@ -27,9 +28,10 @@ class AdminController extends Controller
     }
 
     public function horas(Request $request){
+        $masc=$request->cod_servicio;
         $reservas = reserva::all();
-
+        $mascotas=Mascota::all();
         
-        return view('administrador.horas',compact(['reservas']));
+        return view('administrador.horas',compact(['reservas','mascotas']));
     }
 }

@@ -70,8 +70,10 @@
                                 
                                 <div class = "mb-3">  
                                     <div>  
-                                        <div>   
+                                        <div> 
+                                            <label for="" class="form-label">Selecciona la fecha que desee</label>  
                                             <input type = "date" name = "fecha" id="fecha" min="{{ date('Y-m-d') }}" required>  
+                                            <label for="" class="form-label">Selecciona la hora que desee</label>
                                             <select name="hora" id="hora">
                                                 @foreach ($horasDisponiblesPorDia as $hora )
                                                     <option value="{{$hora}}">{{$hora}}</option>

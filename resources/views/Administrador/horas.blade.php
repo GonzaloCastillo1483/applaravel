@@ -22,7 +22,10 @@
                         <td class="align-middle">{{$reserva->id}}</td>
                         <td class="align-middle">{{$reserva->fecha}}</td>
                         <td class="align-middle">{{$reserva->hora}}</td>
-                        <td class="align-middle">{{$reserva->cod_masc}}</td>
+              
+                        <td class="align-middle">
+                            {{$reserva->cod_masc}} 
+                        </td>
                         <td class="align-middle">{{$reserva->estado}}</td>
                     </tr>
                     @endforeach

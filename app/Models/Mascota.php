@@ -23,5 +23,8 @@ class Mascota extends Model
         });
     }
     
+    public function reservas(){
+        return $this->hasMany('App\Models\reserva');
+    }
 
 }

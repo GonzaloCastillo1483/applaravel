@@ -94,8 +94,7 @@ class ReservasController extends Controller
         $detalle->cod_serv= $request->cod_servicio;
         $detalle->id_detalle=$idReserva;
         $detalle->precio_final=PrecioHelper::calcularPrecioFinal($precioSeleccionado,$tamano,$esta);
-        $detalle->fecha =$request->fecha;
-        $detalle->hora =$request->hora;
+        
         $detalle->save();
         
 
