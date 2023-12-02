@@ -29,7 +29,7 @@
                         </td>
                         <td class="align-middle">{{$reserva->estado}}</td>
                         <td>
-                            <span data-bs-toggle="tooltip" data-bs-title="Borrar detalles de esta reserva">
+                            <span data-bs-toggle="tooltip" data-bs-title="Borrar reserva">
                                 <button type="button" class="btn btn-sm btn-danger pb-0" data-bs-toggle="modal" data-bs-target="#borrardetallemodel{{$reserva->id}}">
                                     <span class="material-icons">delete</span>
                                 </button>
@@ -40,11 +40,11 @@
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Borrando detalles..</h1>
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Borrando reserva..</h1>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                     <div class="modal-body">
-                                        ¿Desea borrar los detalles de esta reserva?
+                                        ¿Desea borrar esta reserva?
                                     </div>
                                     <div class="modal-footer">
                                         <form method="POST" action="{{route('reservas.destroy',$reserva->id)}}">
@@ -52,7 +52,7 @@
                                             
                                             @method('delete')
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                            <button type="submit" class="btn btn-warning">Borrar detalle</button>
+                                            <button type="submit" class="btn btn-warning">Borrar reserva</button>
 
                                         </form>
                                     </div>

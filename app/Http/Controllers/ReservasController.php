@@ -93,8 +93,8 @@ class ReservasController extends Controller
         
 
     
-
-        return view('reservas.index', compact('mascotas','horasDisponiblesPorDia','servicios'))->with('success','Reserva hecha correctamente');
+        
+        return view('home.show', compact('mascotas','horasDisponiblesPorDia','servicios'))->with('success','Reserva hecha correctamente');
     }
 
 

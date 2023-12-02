@@ -28,6 +28,7 @@ Route::get('/show',[InicioController::class,'show'])->name('home.show');
 Route::get('/index',[CuentasController::class,'index'])->name('clientes.index');
 Route::get('reserva/index',[ReservasController::class,'index'])->name('reservas.index');
 Route::delete('/clientes/{cliente}',[CuentasController::class,'destroy'])->name('clientes.destroy');
+Route::delete('/mascota/{Mascota}',[MascotaController::class,'destroy'])->name('mascota.destroy');
 
 Route::get('mascota/index',[MascotaController::class,'index'])->name('clientes.mascota');
 Route::get('/clientes/{cliente}/edit',[CuentasController::class,'edit'])->name('clientes.edit');

@@ -15,7 +15,11 @@
                 <h3>Cuentas Registradas</h3>
             </div>
         </div>
-
+        @if(session('error'))
+            <div class="alert alert-danger">
+                {{ session('error') }}
+            </div>
+        @endif
         <div class="row">
             <!-- tabla -->
             <div class="col-12 col-lg-5 order-last order-lg-first">
@@ -88,7 +92,6 @@
                             <th>Id Mascota</th>
                             <th>Nombre</th>
                             <th>Rut Dueño</th>
-                            
                             <th colspan="3">Acciones</th>
                         </tr>
                     </thead>
@@ -98,7 +101,37 @@
                                 <td class="align-middle">{{$mascota->cod_mascota}}</td>
                                 <td class="align-middle">{{$mascota->nom_mascota}}</td>
                                 <td class="align-middle">{{$mascota->rut_cliente}}</td>
+                                <td>
+                                    <span data-bs-toggle="tooltip" data-bs-title="Borrar {{$mascota->cod_mascota}}">
+                                        <button type="button" class="btn btn-sm btn-danger pb-0" data-bs-toggle="modal" data-bs-target="#mascotaBorrarModel{{$mascota->cod_mascota}}">
+                                            <span class="material-icons">delete</span>
+                                        </button>
+                                    </span>
+                                </td>
                             </tr>
+                            <div class="modal fade" id="mascotaBorrarModel{{$mascota->cod_mascota}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Borrando mascota..</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                            <div class="modal-body">
+                                                ¿Desea borrar a {{$mascota->nom_mascota}}?
+                                            </div>
+                                            <div class="modal-footer">
+                                                <form method="POST" action="{{route('mascota.destroy',$mascota->cod_mascota)}}">
+                                                    @csrf
+                                                    
+                                                    @method('delete')
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                                                    <button type="submit" class="btn btn-warning">Borrar mascota</button>
+
+                                                </form>
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
                         @endforeach
                     </tbody>
                 </table>

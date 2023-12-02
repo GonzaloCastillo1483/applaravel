@@ -95,7 +95,14 @@ class CuentasController extends Controller
 
 
     public function destroy(Cliente $cliente){
-        $cliente->delete();
+        $rut_key = $cliente->rut_cliente;
+        $mascota_key = DB::table('mascota')->where('rut_cliente', $rut_key)->get();
+        if($mascota_key != Null){
+            return redirect()->back()->with('error', 'Este usuario tiene mascotas dentro de la base de datos');
+        } else{
+            $cliente->delete();
+        }
+        
         return redirect()->route('administrador.index');
     }
 
