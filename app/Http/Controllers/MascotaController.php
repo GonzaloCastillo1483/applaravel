@@ -29,11 +29,12 @@ class MascotaController extends Controller
 
     public function destroy(mascota $Mascota){
         $id_key = $Mascota->cod_mascota;
-        $masc_key = DB::table('reserva')->where('cod_masc', $id_key)->get();
+        $masc_key = DB::table('reserva')->where('cod_masc', $id_key)->first();
         if($masc_key != Null){
             return redirect()->back()->with('error', 'esta mascota tiene una reserva pendiente');
         } else{
-            $mascotas->delete();
+            $Mascota->delete();
+            return view('home.show');
         }
     }
 }

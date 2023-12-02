@@ -25,7 +25,7 @@
                         <td class="align-middle">{{$reserva->hora}}</td>
               
                         <td class="align-middle">
-                            {{$reserva->cod_masc}} 
+                            {{$reserva->nom_mascota}} 
                         </td>
                         <td class="align-middle">{{$reserva->estado}}</td>
                         <td>

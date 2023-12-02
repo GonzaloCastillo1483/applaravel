@@ -28,9 +28,11 @@ class AdminController extends Controller
     }
 
     public function horas(Request $request){
-        $masc=$request->cod_servicio;
-        $reservas = reserva::all();
         $mascotas=Mascota::all();
+        $reservas = reserva::all();
+
+        $masc_id = $request-> cod_masc;
+        $reservas = DB::table('reserva')->select('id','fecha','hora','estado','nom_mascota')->join('mascota','cod_mascota','=','cod_masc')->get();
         
         return view('administrador.horas',compact(['reservas','mascotas']));
     }

@@ -91,8 +91,8 @@ class ReservasController extends Controller
         
         $detalle->save();
         
-
-    
+        
+        
         
         return view('home.show', compact('mascotas','horasDisponiblesPorDia','servicios'))->with('success','Reserva hecha correctamente');
     }
