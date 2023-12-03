@@ -41,17 +41,17 @@
                             @csrf
                             <div class="mb-3">
                                 <label for="nom_mascota" class="form-label">Nombre de la mascota</label>
-                                <input type="text" id="nom_mascota" name="nom_mascota" class="form-control">
+                                <input type="text" id="nom_mascota" name="nom_mascota" class="form-control" value="{{old('nom_mascota')}}">
                             </div>
 
                             <div class="mb-3">
                                 <label for="raza" class="form-label">Raza de la mascota</label>
-                                <input type="text" id="raza" name="raza" class="form-control">
+                                <input type="text" id="raza" name="raza" class="form-control" value="{{old('raza')}}">
                             </div>
 
                             <div class="mb-3">
                                 <label for="edad" class="form-label">edad de la mascota</label>
-                                <input type="text" id="edad" name="edad" class="form-control">
+                                <input type="text" id="edad" name="edad" class="form-control" value="{{old('edad')}}">
                             </div>
 
                             <div class="mb-3">

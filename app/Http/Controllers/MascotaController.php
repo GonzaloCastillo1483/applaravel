@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\DB;
 class MascotaController extends Controller
 {
     public function index(){
-        return view('clientes.mascota');
+        return view('clientes.mascota',compact('mascota'));
     }
 
     public function store(MascotaRequest $request){
