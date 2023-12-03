@@ -35,15 +35,15 @@
                                     @csrf
                                     @method('patch')
                                     <div class="form-check form-check-inline">
-                                        <input type="radio" class="form-check-input" id="est-pendiente-{{$reserva->id}}" name="estado_r" value="pendiente" @if($reserva->estado_r=='pendiente') checked @endif >
+                                        <input type="radio" class="form-check-input" id="est-pendiente-{{$reserva->id}}" name="estado" value="pendiente" @if($reserva->estado=='pendiente') checked @endif >
                                         <label class="form-check-label" for="est-pendiente-{{$reserva->id}}">En espera</label>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <input type="radio" class="form-check-input" id="est-hecha-{{$reserva->id}}" name="estado_r" value="hecha" @if($reserva->estado_r=='hecha') checked @endif>
+                                        <input type="radio" class="form-check-input" id="est-hecha-{{$reserva->id}}" name="estado" value="hecha" @if($reserva->estado=='hecha') checked @endif>
                                         <label class="form-check-label" for="est-hecha-{{$reserva->id}}">Servicio hecho</label>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <input type="radio" class="form-check-input" id="est-cancelar-{{$reserva->id}}" name="estado_r" value="cancelada" @if($reserva->estado_r=='cancelada') checked @endif>
+                                        <input type="radio" class="form-check-input" id="est-cancelar-{{$reserva->id}}" name="estado" value="cancelada" @if($reserva->estado=='cancelada') checked @endif>
                                         <label class="form-check-label" for="est-cancelar-{{$reserva->id}}">Cancelada</label>
                                     </div>
                                     <button type="submit" class="btn btn-sm btn-primary">Actualizar estado</button>
