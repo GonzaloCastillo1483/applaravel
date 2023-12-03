@@ -32,7 +32,7 @@ class AdminController extends Controller
         $reservas = reserva::all();
 
         $masc_id = $request-> cod_masc;
-        $reservas = DB::table('reserva')->select('id','fecha','hora','estado','nom_mascota')->join('mascota','cod_mascota','=','cod_masc')->get();
+        $reservas = DB::table('reserva')->select('id','fecha','hora','estado','estado_r','nom_mascota')->join('mascota','cod_mascota','=','cod_masc')->get();
         
         return view('administrador.horas',compact(['reservas','mascotas']));
     }

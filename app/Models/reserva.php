@@ -10,9 +10,9 @@ class Reserva extends Model
     use HasFactory;
     protected $table='reserva';
     protected $attributes = [
-        'estado' => 'pendiente',
+        'estado_r' => 'pendiente',
     ];
-    protected $fillable = ['fecha','hora','estado'];
+    protected $fillable = ['fecha','hora','estado_r'];
 
     public function mascota()
     {
