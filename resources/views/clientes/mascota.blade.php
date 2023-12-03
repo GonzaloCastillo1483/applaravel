@@ -29,6 +29,14 @@
                                         {{ session('error') }}
                                     </div>
                         @endif
+
+                        @if(session('success'))
+                            <div class="alert alert-success">
+                                {{ session('success') }}
+                            </div>
+                         @endif
+
+
                         <form method="POST" action="{{route('mascota.store')}}">
                             @csrf
                             <div class="mb-3">
