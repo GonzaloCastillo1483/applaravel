@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
             PerfilSeeder::class,
             ClientesSeeder::class,
             ServiciosSeeder::class,
+            MascotasSeeder::class,
         ]);
     }
 }

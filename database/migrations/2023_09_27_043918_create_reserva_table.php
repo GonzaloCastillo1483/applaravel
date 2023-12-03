@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('hora');
             $table->integer('cod_masc')->unsigned();
             $table->string('estado');
+            $table->string('estado_r');
             $table->timestamps();
             $table->foreign('cod_masc')->references('cod_mascota')->on('mascota');
         });

@@ -110,4 +110,11 @@ class ReservasController extends Controller
         $reservas->delete();
         return redirect()->route('administrador.index');
     }
+
+    public function cambiarEstado(Request $request, Reserva $reserva){
+        
+        $reserva->update(['estado_r' => $request->estado_r]);
+        
+        return redirect()->back()->with('success', 'Estado de reserva actualizado correctamente');
+    }
 }
