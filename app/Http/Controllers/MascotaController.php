@@ -1,8 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Http\Requests\ClienteRequest;
+use App\Http\Requests\UpdateRequest;
+use Illuminate\Http\RedirectResponse;
 use App\Models\Mascota;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Hash;
@@ -17,9 +22,31 @@ class MascotaController extends Controller
 
     public function store(Request $request){
         $mascota=new Mascota();
-        $mascota->nom_mascota=$request->nom_mascota;
+
+        $nombre_mascota = $request->input('nom_mascota');
+        if ($nombre_mascota == Null) {
+            
+            return redirect()->back()->with('error', '¨Porfavor coloque el nombre de mascota');
+        }else{
+            $mascota->nom_mascota = $request->nom_mascota;
+        }
         $mascota->rut_cliente=Auth::user()->rut_cliente;
-        $mascota->raza=$request->raza;
+        
+        $raza_mascota = $request->input('raza');
+        if ($raza_mascota == Null) {
+            
+            return redirect()->back()->with('error', '¨Porfavor coloque la raza de la mascota');
+        }else{
+            $mascota->raza = $request->raza;
+        }
+
+        $edad_mascota = $request->input('edad');
+        if ($edad_mascota == Null) {
+            
+            return redirect()->back()->with('error', 'Porfavor coloque la edad de la mascota');
+        }else{
+            $mascota->edad=$request->edad;
+        }
         $mascota->edad=$request->edad;
         $mascota->tamaño=$request->tamaño;
         

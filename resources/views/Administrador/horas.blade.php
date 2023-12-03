@@ -6,7 +6,7 @@
     <div class="container-fluid">
         <div class="row">
             <label>Reservas</label>
-        </div>
+
         <div class="row">
             <table class="table table-bordered table-striped table-hover">
                 <thead>
