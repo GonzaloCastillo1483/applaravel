@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class MascotaRequest extends FormRequest
+class UpdateMascotaRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,10 +24,12 @@ class MascotaRequest extends FormRequest
         return [
             'nom_mascota' => 'required|max:50|min:3',
             'raza' =>  'required|max:50|min:3',
+            'rut_cliente' =>'required',
             'edad' => 'required|min:1|max:2',
             'tamaño' =>'required'
         ];
     }
+
     public function messages()
     {
         return[
@@ -37,6 +39,7 @@ class MascotaRequest extends FormRequest
             'raza.required' => 'Debe colocar la raza de su mascota',
             'raza.max' => 'La raza debe que tener maximo 50 caracteres',
             'raza.min' => 'La raza debe que tener minimo 3 caracter',
+            'rut_cliente.required' => 'Ingresa el rut del dueño',
             'edad.required' => 'Indique la edad de su mascota',
             'edad.min' => 'La edad debe que tener minimo 1 caracter',
             'edad.max' => 'La edad debe que tener maximo 2 caracteres',

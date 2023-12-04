@@ -27,6 +27,19 @@ class AdminController extends Controller
         return view('administrador.index',compact(['clientes','mascotas']));
     }
 
+    public function mostrarM(Request $request){
+        $clientes = Cliente::all();
+        $mascotas= Mascota::all();
+        $perro=$request->perro;
+        $perros=DB::table('mascota')->where('nom_mascota',$perro)->get();
+        if ($perros->contains('nom_mascota',$perro)) {
+            $mascotas=DB::table('mascota')->where('nom_mascota',$perro)->get();
+        }else{
+            $mascotas=Mascota::all();
+        }
+        return view('administrador.index',compact(['clientes','mascotas']));
+    }
+
     public function horas(Request $request){
         $mascotas=Mascota::all();
         $reservas = reserva::all();

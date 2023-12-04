@@ -55,10 +55,12 @@
 
 
               @endif
-              @if(Gate::allows('visitante'))
+              @if(Gate::allows('usuario'))
                 <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{{route('home.login')}}">Inicia sesion</a>
+                <b></b>
                 </li>
+              @else
+                <a class="nav-link active" aria-current="page" href="{{route('home.login')}}">Inicia sesion</a>  
               @endif  
              
               @if (Gate::allows('cliente-listar'))
@@ -67,15 +69,15 @@
               </li>
               @endif
 
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{{route('home.login')}}">Inicia sesion</a>
-                </li>
+              <form class="d-flex">
+                <a href="{{route('clientes.logout')}}" class="btn btn-danger">Cerrar Sesión</a>
+              </form>
              
             </ul>
 
-            <form class="d-flex">
+            {{-- <form class="d-flex">
               <a href="{{route('clientes.logout')}}" class="btn btn-danger">Cerrar Sesión</a>
-            </form>
+            </form> --}}
             
           </div>
         </div>

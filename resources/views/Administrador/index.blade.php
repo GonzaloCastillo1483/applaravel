@@ -7,7 +7,12 @@
         <div class="row">
             <form class="d-flex" role="search" action="{{route('administrador.index')}}">
                 <input class="form-control me-2" type="search" placeholder="Buscar usuario" aria-label="Search" name="usuario">
-                <button class="btn btn-outline-success" type="submit">Search</button>
+                <button class="btn btn-outline-success" type="submit">Buscar</button>
+            </form>
+
+            <form class="d-flex p-3" role="search" action="{{route('admin.mostrarM')}}">
+                <input class="form-control " type="search" placeholder="Buscar Mascota" aria-label="Search" name="perro">
+                <button class="btn btn-outline-success" type="submit">Buscar</button>
             </form>
         </div>
         <div class="row">
@@ -107,6 +112,11 @@
                                             <span class="material-icons">delete</span>
                                         </button>
                                     </span>
+
+                                    <a href="{{route('clientes.mascotaE',$mascota->cod_mascota)}}" class="btn btn-sm btn-warning pb-0 text-white" data-bs-toggle="tooltip"
+                                        data-bs-title="Editar {{$mascota->nom_mascota}}">
+                                        <span class="material-icons">edit</span>
+                                    </a>
                                 </td>
                             </tr>
                             <div class="modal fade" id="mascotaBorrarModel{{$mascota->cod_mascota}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

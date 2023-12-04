@@ -39,6 +39,7 @@ Route::post('clientes/login',[CuentasController::class,'login'])->name('clientes
 
 Route::get('clientes/logout',[CuentasController::class,'logout'])->name('clientes.logout');
 Route::get('admin/index',[AdminController::class,'index'])->name('administrador.index');
+Route::get('admin/mostrarM',[AdminController::class,'mostrarM'])->name('admin.mostrarM');
 Route::get('admin/horas',[AdminController::class,'horas'])->name('administrador.horas');
 Route::post('mascota/store',[MascotaController::class,'store'])->name('mascota.store');
 
@@ -46,4 +47,5 @@ Route::get('reservas/show',[ReservasController::class,'show'])->name('reservas.s
 Route::post('reserva/store',[ReservasController::class,'store'])->name('reservas.store');
 Route::delete('/reserva/{reservas}',[ReservasController::class,'destroy'])->name('reservas.destroy');
 Route::patch('reserva/{reserva}/cambiar-estado', [ReservasController::class,'cambiarEstado'])->name('cambiarEstado');
-
+Route::get('/mascota/{mascota}/edit',[MascotaController::class,'edit'])->name('clientes.mascotaE');
+Route::put('/mascota/{mascota}',[MascotaController::class,'update'])->name('mascotas.update');

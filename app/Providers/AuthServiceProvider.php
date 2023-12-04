@@ -33,7 +33,7 @@ class AuthServiceProvider extends ServiceProvider
 
 
         Gate::define('visitante',function(Cliente $cliente){
-            return $cliente->perfil_id == null;
+            return $cliente->perfil_id ==null;
         });
 
         Gate::define('usuario',function(Cliente $cliente){

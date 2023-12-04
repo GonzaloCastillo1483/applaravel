@@ -36,7 +36,7 @@ class CuentasController extends Controller
     
         if ($dvProvided !== $dvCalculated) {
             
-            return redirect()->back()->with('error', 'El dígito verificador es incorrecto');
+            return back()->with('error', 'El dígito verificador es incorrecto');
         }
         $cliente->rut_cliente=$request->rut_cliente;
         $cliente->nom_cliente=$request->nom_cliente;
@@ -45,7 +45,7 @@ class CuentasController extends Controller
         $finalPass=$request->password;
 
         if($contra!==$finalPass){
-            return redirect()->back()->with('error', 'Las contraseñas nos coinciden');
+            return back()->with('error', 'Las contraseñas nos coinciden');
         }
 
 
@@ -120,7 +120,7 @@ class CuentasController extends Controller
         $finalPass=$request->password;
 
         if($contra!==$finalPass){
-            return redirect()->back()->with('error', 'Las contraseñas nos coinciden');
+            return back()->with('error', 'Las contraseñas nos coinciden');
         }
 
         $cliente->password=Hash::make($finalPass);

@@ -9,6 +9,7 @@ use Illuminate\Http\RedirectResponse;
 use App\Models\Mascota;
 use Illuminate\Http\Request;
 use App\Http\Requests\MascotaRequest;
+use App\Http\Requests\UpdateMascotaRequest;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -19,7 +20,7 @@ use Illuminate\Support\Facades\DB;
 class MascotaController extends Controller
 {
     public function index(){
-        return view('clientes.mascota',compact('mascota'));
+        return view('clientes.mascota');
     }
 
     public function store(MascotaRequest $request){
@@ -67,5 +68,36 @@ class MascotaController extends Controller
             $Mascota->delete();
             return view('home.show');
         }
+    }
+
+
+    public function edit(Mascota $mascota){
+        return view('clientes.mascotaE',compact('mascota'));
+        
+    }
+
+    public function update(UpdateMascotaRequest $request,$cod_mascota){
+        $mascota=Mascota::all();
+        $mascota=Mascota::where('cod_mascota',$request->input('cod_mascota'))->first();
+        $mascota->nom_mascota=$request->nom_mascota;
+        $mascota->raza=$request->raza;
+        
+        $rut=$request->rut_cliente;
+        if ($rut==null) {
+            return back()->with('error','Ingresa el rut del dueño');
+        }
+        else{
+            $Frut=DB::table('cliente')->where('rut_cliente',$rut)->first();
+            if ($Frut) {
+                $mascota->rut_cliente=$rut;
+            }else{
+                return back()->with('error', 'Este rut no existe en el sistema');
+            }
+            $mascota->edad=$request->edad;
+            $mascota->tamaño=$request->tamaño;
+            $mascota->save();
+            return redirect()->route('administrador.index');
+        }
+        
     }
 }
