@@ -24,7 +24,7 @@ class ClientesSeeder extends Seeder
             ['rut_cliente' => '21430932-7','nom_cliente' => 'Gabriel', 'password' => Hash::make('1234'), 'fono' => '22222222', 'perfil_id'=>2],
             ['rut_cliente' => '21083443-5','nom_cliente' => 'Rodrigo', 'password' => Hash::make('1234'), 'fono' => '11111111', 'perfil_id'=>2],
             ['rut_cliente' => '21342303-7','nom_cliente' => 'Joaquin', 'password' => Hash::make('1234'), 'fono' => '11111111', 'perfil_id'=>2],
-            
+            ['rut_cliente' => '21144886-7','nom_cliente' => 'Cristian', 'password' => Hash::make('1234'), 'fono' => '11111111', 'perfil_id'=>2],
         ]);
     }
 }

@@ -22,7 +22,16 @@
                                         {{ session('error') }}
                                     </div>
                         @endif
+                        @if ($errors->any())
 
+                        <div class="alert alert-danger">
+                                <p>ERROR </p>
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                @endif     </div>
                         
                                 
                        
