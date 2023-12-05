@@ -13,7 +13,7 @@ return new class extends Migration
 {
     Schema::create('detalle', function (Blueprint $table) {
         $table->primary(['cod_serv','id_detalle']);
-        $table->integer('cod_serv');
+        $table->integer('cod_serv')->unsigned();
         $table->integer('id_detalle')->unsigned();
         $table->integer('precio_final');
         $table->timestamps();

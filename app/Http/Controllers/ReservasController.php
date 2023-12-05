@@ -87,14 +87,15 @@ class ReservasController extends Controller
         $detalle = new Detalle();
         $detalle->cod_serv= $request->cod_servicio;
         $detalle->id_detalle=$idReserva;
-        $detalle->precio_final=PrecioHelper::calcularPrecioFinal($precioSeleccionado,$tamano,$esta);
+        $finalprecio=PrecioHelper::calcularPrecioFinal($precioSeleccionado,$tamano,$esta);
+        $detalle->precio_final=$finalprecio;
         
         $detalle->save();
         
         
         
         
-        return view('home.show', compact('mascotas','horasDisponiblesPorDia','servicios'))->with('success','Reserva hecha correctamente');
+        return redirect()->back()->with('success','Reserva hecha correctamente, Fecha reservada:  ' . $NuevaFecha .' Hora: '. $NuevaHora. ' Precio final: $'. $finalprecio);
     }
 
 
@@ -108,7 +109,7 @@ class ReservasController extends Controller
         $id_key = $reservas->id;
         $detalle_borrar = DB::table('Detalle')->where('id_detalle', $id_key)->delete();
         $reservas->delete();
-        return redirect()->route('administrador.index');
+        return redirect()->route('administrador.horas');
     }
 
     public function cambiarEstado(Request $request, Reserva $reserva){

@@ -5,6 +5,12 @@
 <body>
     <div class="container-fluid">
         <div class="row">
+            <form class="d-flex" role="search" action="{{route('admin.buscarH')}}">
+                <input class="form-control me-2" type="search" placeholder="Buscar fecha" aria-label="Search" name="reserva">
+                <button class="btn btn-outline-success" type="submit">Buscar</button>
+            </form>
+        </div>
+        <div class="row">
             <label>Reservas</label>
 
         <div class="row">

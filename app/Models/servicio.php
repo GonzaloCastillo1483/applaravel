@@ -10,5 +10,6 @@ class servicio extends Model
     use HasFactory;
     protected $table = 'servicio';
     protected $primaryKey = 'codigo_servicio';
+    protected $fillable = ['codigo_servicio', 'precio', 'desc_servicio', 'activo'];
     
 }

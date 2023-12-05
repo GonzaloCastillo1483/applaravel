@@ -50,5 +50,21 @@ class AdminController extends Controller
         return view('administrador.horas',compact(['reservas','mascotas']));
     }
 
+    public function buscarH(Request $request){
+        $mascotas=Mascota::all();
+        $reservas = reserva::all();
+        $buscar=$request->reserva;
+        $fbuscar=DB::table('reserva')->where('fecha',$buscar)->get();
+        if ($fbuscar->contains('fecha',$buscar)) {
+            $masc_id = $request-> cod_masc;
+            $reservas = DB::table('reserva')->select('id','fecha','hora','estado','estado_r','nom_mascota')->join('mascota','cod_mascota','=','cod_masc')->where('fecha', $buscar)
+            ->get();
+        }else {
+            $reservas = DB::table('reserva')->select('id','fecha','hora','estado','estado_r','nom_mascota')->join('mascota','cod_mascota','=','cod_masc')->get();
+        }
+        
+        return view('administrador.horas',compact(['reservas','mascotas']));
+    }
+
     
 }

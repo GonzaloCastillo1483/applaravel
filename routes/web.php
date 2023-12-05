@@ -6,6 +6,7 @@ use App\Http\Controllers\InicioController;
 use App\Http\Controllers\CuentasController;
 use App\Http\Controllers\MascotaController;
 use App\Http\Controllers\ReservasController;
+use App\Http\Controllers\ServicioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,3 +50,11 @@ Route::delete('/reserva/{reservas}',[ReservasController::class,'destroy'])->name
 Route::patch('reserva/{reserva}/cambiar-estado', [ReservasController::class,'cambiarEstado'])->name('cambiarEstado');
 Route::get('/mascota/{mascota}/edit',[MascotaController::class,'edit'])->name('clientes.mascotaE');
 Route::put('/mascota/{mascota}',[MascotaController::class,'update'])->name('mascotas.update');
+Route::get('servicio/index',[ServicioController::class,'index'])->name('servicios.index');
+Route::post('servicio/store',[ServicioController::class,'store'])->name('servicios.store');
+Route::get('servicio/show',[ServicioController::class,'show'])->name('servicios.show');
+Route::delete('servicio/{servicio}/destroy',[ServicioController::class,'destroy'])->name('servicios.destroy');
+Route::get('serivcio/{servicios}/edit',[ServicioController::class,'edit'])->name('servicios.edit');
+Route::put('servicio/{servicios}',[ServicioController::class,'update'])->name('servicios.update');
+Route::get('servicio/mostrarS',[ServicioController::class,'mostrarS'])->name('servicios.mostrarS');
+Route::get('admin/buscarH',[AdminController::class,'buscarH'])->name('admin.buscarH');

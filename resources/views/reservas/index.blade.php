@@ -11,7 +11,7 @@
                         Toma de Horas
 
                     </div>
-                    <div class="card-boy">
+                    <div class="card-body">
 
 
                         
@@ -90,9 +90,38 @@
                                     <select name="cod_servicio" id="cod_servicio">
                                         
                                         @foreach ($servicios as $servicio )
-                                            <option value="{{$servicio->codigo_servicio}}">{{$servicio->desc_servicio}}  ${{$servicio->precio}}  </option>
+                                            <option value="{{$servicio->codigo_servicio}}">{{$servicio->desc_servicio}}  ${{$servicio->precio}} || Servicio activo: {{$servicio->activo}}  </option>
                                         @endforeach
                                     </select>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="mb-3">
+                                            <span>El precio del servicio depende del estado del perro:</span>
+                                            <br>
+                                            <span>Amotado: +$10000</span>
+                                            <br>
+                                            <span>Con nudos: +$4000</span>
+                                            <br>
+                                            <span>pulgoso: +$5000</span>
+                                            <br>
+                                            <span>Muy sucio: +$5000</span>
+        
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <span>Tambien el precio depende del tamaño:</span>
+                                        <br>
+                                        <span>Pequeño: no varía el precio</span>
+                                        <br>
+                                        <span>Mediano: +20%</span>
+                                        <br>
+                                        <span>Grande: +50%</span>
+
+
+
+                                    </div>
                                 </div>
                                 
                                 

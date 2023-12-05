@@ -25,7 +25,7 @@ class MascotasSeeder extends Seeder
             ['nom_mascota'=>'pelusa','rut_cliente'=>'21083443-5', 'raza'=>'mestizo','edad'=>'4','tamaño'=> 'mediano'],
             ['nom_mascota'=>'cacique','rut_cliente'=>'21083443-5', 'raza'=>'galgo','edad'=>'7','tamaño'=> 'grande'],
             ['nom_mascota'=>'lucas','rut_cliente'=>'21083443-5', 'raza'=>'pitbull','edad'=>'7','tamaño'=> 'mediano'],
-            ['nom_mascota'=>'sasha','rut_cliente'=>'21144886-5', 'raza'=>'sin raza','edad'=>'11','tamaño'=> 'mediano'],
+            ['nom_mascota'=>'sasha','rut_cliente'=>'21144886-7', 'raza'=>'sin raza','edad'=>'11','tamaño'=> 'mediano'],
         ]);
     }
 }

@@ -17,10 +17,10 @@
             </a>  
 
             @if (Gate::allows('usuario'))
-            <a class="navbar-brand" href="#">Bienvenido/a {{Auth::user()->nom_cliente}}</a>
+            <a class="navbar-brand" href="{{route('home.show')}}">Bienvenido/a {{Auth::user()->nom_cliente}}</a>
 
             @else
-            <a class="navbar-brand" href="#">Bienvenido</a>
+            <a class="navbar-brand" href="{{route('home.show')}}">Bienvenido</a>
             @endif
             
           <a class="navbar-brand" href="{{route('home.show')}}">The Good Pets</a>
@@ -45,6 +45,10 @@
                   <ul class="dropdown-menu">
                     <li><a class="dropdown-item" href="{{route('administrador.horas')}}">Ver horas reservadas</a></li>
                     <li><a class="dropdown-item" href="{{route('administrador.index')}}">Ver Cuentas registradas</a></li>
+                    <li><a class="dropdown-item" href="{{route('servicios.index')}}">Agregar servicio</a></li>
+                    <li><a class="dropdown-item" href="{{route('servicios.show')}}">Gestionar servicios</a></li>
+
+
                   </ul>
 
                   <li class="nav-item">
